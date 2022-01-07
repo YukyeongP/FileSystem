@@ -7,21 +7,12 @@ namespace FileSystem.FS.Fat32
     class Fat32
     {
         public BootRecord BR { get; private set; }
-        
-        // geometry
-        // address: data area, fat start addr, root dir address
-     
         public int[] Fat { get; private set; }
-
         private Stream stream;
 
         public Fat32(Stream s)
         {
             stream = s;
-/*
-            stream.Position = 0;
-            var buffer = new byte[0x200];
-            stream.Read(buffer, 0, 0x200);*/
 
             var buffer = stream.Read(0, 0x200);
             BR = new BootRecord(buffer);
@@ -53,105 +44,83 @@ namespace FileSystem.FS.Fat32
             var fs = new Filesystem();
             var root = makeRoot();
             fs.RootNode = root;
-
-            /*var addressOfnClusters = new List<int>();
             
-            for (int i = 0; i<Fat.Length; i++)
-                addressOfnClusters.Add(BR.AddressData + (Fat[i] - 2) * BR.ClusterSize);
+            /*
+               for (int i = 0; ; i++)
+            {
+                var buffer = stream.Read(BR.AddressData + 32 * i, 0x20);
+                var de = new DirectoryEntry(buffer);
+                var node = makeNode(de);
+
+                if (node.IsLfn || node.IsVolumeName || node.Name == "." || node.Name == "..")
+                    continue;
+                
+                fs.NodeTree.Add(node.Name, node);
+
+                if (node.IsDir)
+                {
+                    
+                    //recursive
+
+
+                }
+
+                if (buffer[0] == 0x00)
+                    break;
+            }
             */
+            
             return fs;
         }
 
         public Node makeRoot()
         {
-            stream.Position = BR.AddressData;
-            var buffer = new byte[0x20];
-            stream.Read(buffer, 0, 0x20);
-
-            //var buffer = stream.Read(BR.AddressData, 0x20);
-
+            /*
+            var buffer = stream.Read(BR.AddressData, 0x20);
             var de = new DirectoryEntry(buffer);
-
             var node = makeNode(de);
+            */
+            var node = new Node();
+            node.Name = "/";
+            node.IsDir = true;
 
             return node;
         }
 
         public Node makeNode(DirectoryEntry de)
         {
-            var node = new Node();
-            node.Name = de.Name;
-            node.IsFile = de.IsFile;
-            node.IsDir = de.IsDir;
+            var node = new Node() {
+                Name = de.Name,
+                IsFile = de.IsFile,
+                IsDir = de.IsDir,
+                IsLfn = de.IsLfn,
+                IsVolumeName = de.IsVolumeName,
+                Stream = makeNodeStream(de.ClusterNo)
+            };
+
             return node;
         }
 
-        public NodeStream makeNodeStream()
-        {
-            var extents = makeExtent(BR.RootClusterNo);
-            var nodeStream = new NodeStream(stream, extents);
-            return nodeStream;
-        }
-
-        public List<Extent> makeExtent(long clusterNo)
+         public NodeStream makeNodeStream(long clusterNo)
         {
             var extents = new List<Extent>();
-            while (clusterNo != 0xFFFFFFF)
+            if (clusterNo == 0) //
+                return new NodeStream(stream, extents);
+            //throw new Exception(); 
+
+            while (clusterNo != 0x0FFFFFFF && clusterNo != 0 && clusterNo != 0xffffff8)
             {
                 var starts = BR.AddressData + (clusterNo - 2) * BR.ClusterSize;
                 var extent = new Extent(starts, BR.ClusterSize);
                 extents.Add(extent);
                 clusterNo = Fat[clusterNo];
+                if (clusterNo == 0)
+                {
+                    return new NodeStream(stream, new List<Extent>());
+                }
             }
-            return extents;
-        }
-
-        /*
-        
-        private Node makeRoot()
-        {
-            // read root Directory entry de
-            var buffer = stream.Read(BR.AddressData, 0x20);
-            var de = new DirectoryEntry(buffer);
-
-            var node = makeNode(de);
-
-            return node;
-        }
-
-        private Node makeNode(DirectoryEntry de)
-        {
-            //var node = new Node(de);
-            
-            // 1. fill meta data of node
-            var node = new Node();
-            //node. = de.
-
-            // 2. make nodestream
-            
-            NodeStream s = makeNodeStream(de.ClusterNo);
-            node.Stream = s;
-
-            return node;
-        }
-
-        private NodeStream makeNodeStream(long clusterNo)
-        {
-            // make extent list
-
-            var extents = new List<Extent>();
-
-            while (clusterNo != 0x0FFFFF)
-            {
-                var start = BR.AddressData + (clusterNo - 2) * 0x1000;
-                var extent = new Extent(start, 0x1000);
-                extents.Add(extent);
-                clusterNo = Fat[clusterNo];
-            }
-
             return new NodeStream(stream, extents);
         }
-         */
     }
 
     static class StreamExtension
