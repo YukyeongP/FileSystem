@@ -1,7 +1,0 @@
-C:\Users\김승주\Desktop\YKP\HCcsCode\FileSystem\bin\Debug\FileSystem.exe.config
-C:\Users\김승주\Desktop\YKP\HCcsCode\FileSystem\bin\Debug\FileSystem.exe
-C:\Users\김승주\Desktop\YKP\HCcsCode\FileSystem\bin\Debug\FileSystem.pdb
-C:\Users\김승주\Desktop\YKP\HCcsCode\FileSystem\obj\Debug\FileSystem.csprojAssemblyReference.cache
-C:\Users\김승주\Desktop\YKP\HCcsCode\FileSystem\obj\Debug\FileSystem.csproj.CoreCompileInputs.cache
-C:\Users\김승주\Desktop\YKP\HCcsCode\FileSystem\obj\Debug\FileSystem.exe
-C:\Users\김승주\Desktop\YKP\HCcsCode\FileSystem\obj\Debug\FileSystem.pdb
