@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.100" timestamp="2022-01-17T11:52:57.419794" hostname="DESKTOP-BLEP6BL"><testcase classname="test_bb.TestByteBuffer2" name="test_get_uintn_be" file="test_bb.py" line="51" time="0.001"><failure message="AssertionError: 0 != 4386">self = &lt;test_bb.TestByteBuffer2 testMethod=test_get_uintn_be&gt;
+
+    def test_get_uintn_be(self):
+        self.assertEqual(self.bb2.get_uintn_be(6), 0x112233445566)
+&gt;       self.assertEqual(self.bb2.get_uintn_be(2), 0x1122)
+E       AssertionError: 0 != 4386
+
+test_bb.py:54: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="7" time="0.124" timestamp="2022-01-19T09:38:52.263109" hostname="DESKTOP-BLEP6BL"><testcase classname="test_bb.TestByteBuffer2" name="test_ctor" file="test_bb.py" line="16" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_ascii2" file="test_bb.py" line="40" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_unicode" file="test_bb.py" line="47" time="0.001"><failure message="AssertionError: '\x11&quot;3D' != '한글'&#10;- #x11&quot;3D&#10;+ 한글">self = &lt;test_bb.TestByteBuffer2 testMethod=test_get_unicode&gt;
+
+    def test_get_unicode(self):
+        bb = ByteBuffer2(b'\xed\x95\x9c\xea\xb8\x80')
+        r = self.bb.get_unicode()
+&gt;       self.assertEqual(r, "한글")
+E       AssertionError: '\x11"3D' != '한글'
+E       - #x11"3D
+E       + 한글
+
+test_bb.py:51: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint2_be" file="test_bb.py" line="24" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint2_le" file="test_bb.py" line="20" time="0.000"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint4_be" file="test_bb.py" line="32" time="0.000"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint4_le" file="test_bb.py" line="28" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

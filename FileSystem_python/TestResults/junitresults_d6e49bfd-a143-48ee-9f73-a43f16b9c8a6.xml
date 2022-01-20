@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="7" time="0.125" timestamp="2022-01-18T11:35:14.708119" hostname="DESKTOP-BLEP6BL"><testcase classname="test_bb.TestByteBuffer2" name="test_ctor" file="test_bb.py" line="17" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_ascii2" file="test_bb.py" line="41" time="0.001"><failure message="AssertionError: '\x00world' != 'world'&#10;- #x00world&#10;? -&#10;+ world">self = &lt;test_bb.TestByteBuffer2 testMethod=test_get_ascii2&gt;
+
+    def test_get_ascii2(self):
+        bb = ByteBuffer2(b'hello\x00world')
+        r0 = bb.get_ascii()
+        r1 = bb.get_ascii()
+        self.assertEqual(r0, "hello")
+&gt;       self.assertEqual(r1, "world")
+E       AssertionError: '\x00world' != 'world'
+E       - #x00world
+E       ? -
+E       + world
+
+test_bb.py:47: AssertionError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_unicode" file="test_bb.py" line="48" time="0.001"><failure message="AttributeError: 'TestByteBuffer2' object has no attribute 'bb5'">self = &lt;test_bb.TestByteBuffer2 testMethod=test_get_unicode&gt;
+
+    def test_get_unicode(self):
+&gt;       res3 = self.bb5.get_ascii()
+E       AttributeError: 'TestByteBuffer2' object has no attribute 'bb5'
+
+test_bb.py:50: AttributeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint2_be" file="test_bb.py" line="25" time="0.001"><failure message="NameError: name 'advance' is not defined">self = &lt;test_bb.TestByteBuffer2 testMethod=test_uint2_be&gt;
+
+    def test_uint2_be(self):
+&gt;       self.assertEqual(self.bb.get_uint2_be(), 0x1122)
+
+test_bb.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Bytebuffer2.ByteBuffer2 object at 0x000002516ED50760&gt;, at = -1
+
+    def get_uint2_be(self, at = -1):
+&gt;       here = advance(at, 2)
+E       NameError: name 'advance' is not defined
+
+Bytebuffer2.py:37: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint2_le" file="test_bb.py" line="21" time="0.001"><failure message="NameError: name 'advance' is not defined">self = &lt;test_bb.TestByteBuffer2 testMethod=test_uint2_le&gt;
+
+    def test_uint2_le(self):
+&gt;       self.assertEqual(self.bb.get_uint2_le(), 0x2211)
+
+test_bb.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Bytebuffer2.ByteBuffer2 object at 0x000002516ED54340&gt;, at = -1
+
+    def get_uint2_le(self, at = -1):
+&gt;       here = advance(at, 2)
+E       NameError: name 'advance' is not defined
+
+Bytebuffer2.py:32: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint4_be" file="test_bb.py" line="33" time="0.001"><failure message="NameError: name 'advance' is not defined">self = &lt;test_bb.TestByteBuffer2 testMethod=test_uint4_be&gt;
+
+    def test_uint4_be(self):
+&gt;       self.assertEqual(self.bb.get_uint4_be(), 0x11223344)
+
+test_bb.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Bytebuffer2.ByteBuffer2 object at 0x000002516ED5AF40&gt;, at = -1
+
+    def get_uint4_be(self, at = -1):
+&gt;       here = advance(at, 4)
+E       NameError: name 'advance' is not defined
+
+Bytebuffer2.py:47: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint4_le" file="test_bb.py" line="29" time="0.001"><failure message="NameError: name 'advance' is not defined">self = &lt;test_bb.TestByteBuffer2 testMethod=test_uint4_le&gt;
+
+    def test_uint4_le(self):
+&gt;       self.assertEqual(self.bb.get_uint4_le(), 0x44332211)
+
+test_bb.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;Bytebuffer2.ByteBuffer2 object at 0x000002516EDB14F0&gt;, at = -1
+
+    def get_uint4_le(self, at = -1):
+&gt;       here = advance(at, 4)
+E       NameError: name 'advance' is not defined
+
+Bytebuffer2.py:42: NameError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>

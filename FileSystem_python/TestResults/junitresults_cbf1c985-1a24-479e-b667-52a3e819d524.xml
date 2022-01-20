@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="9" time="0.114" timestamp="2022-01-19T10:33:10.533880" hostname="DESKTOP-BLEP6BL"><testcase classname="test_bb.TestByteBuffer2" name="test_ctor" file="test_bb.py" line="16" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_ascii2" file="test_bb.py" line="47" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_byte" file="test_bb.py" line="36" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_bytes" file="test_bb.py" line="43" time="0.000"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_get_unicode" file="test_bb.py" line="54" time="0.001"><failure message="AttributeError: 'TestByteBuffer2' object has no attribute 'bb4'">self = &lt;test_bb.TestByteBuffer2 testMethod=test_get_unicode&gt;
+
+    def test_get_unicode(self):
+        bb3 = ByteBuffer2(b'\xed\x95\x9c\xea\xb8\x80') #한글
+        bb4 = ByteBuffer2(b'\xff\xfeI\x00 \x00a\x00m\x00\x00a\x00\x00s\x00t\x00r\x00i\x00n\x00g\x00')
+&gt;       r = self.bb4.get_unicode()
+E       AttributeError: 'TestByteBuffer2' object has no attribute 'bb4'
+
+test_bb.py:58: AttributeError</failure><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint2_be" file="test_bb.py" line="24" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint2_le" file="test_bb.py" line="20" time="0.000"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint4_be" file="test_bb.py" line="32" time="0.000"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase><testcase classname="test_bb.TestByteBuffer2" name="test_uint4_le" file="test_bb.py" line="28" time="0.001"><system-out>--------------------------------- Captured Log ---------------------------------
+
+--------------------------------- Captured Out ---------------------------------
+
+</system-out><system-err>--------------------------------- Captured Err ---------------------------------
+
+</system-err></testcase></testsuite></testsuites>
